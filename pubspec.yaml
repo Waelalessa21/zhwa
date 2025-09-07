@@ -1,0 +1,50 @@
+name: zhwa
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+   
+  flutter_localizations:
+    sdk: flutter
+
+  #provide the first screen when app runs
+  flutter_native_splash: ^2.4.6 
+  #for responsive design
+  flutter_screenutil: ^5.9.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/lottie/
+
+  fonts:
+    - family: "IBMPlexSansArabic"
+      fonts:
+        - asset: "assets/fonts/IBMPlexSansArabic-Regular.ttf"
+        - asset: "assets/fonts/IBMPlexSansArabic-Thin.ttf"
+        - asset: "assets/fonts/IBMPlexSansArabic-Light.ttf"
+        - asset: "assets/fonts/IBMPlexSansArabic-Bold.ttf"
+
+
+
+
+flutter_native_splash:
+  android: true
+  ios: true
+  web: false
+  fullscreen: true
+  background_image: assets/images/splash_screen.png
