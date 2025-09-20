@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:zhwa/core/routing/app_router.dart';
 import 'package:zhwa/core/routing/routes.dart';
 import 'package:zhwa/core/theming/app_colors.dart';
+import 'package:zhwa/core/localization/app_localizations.dart';
 
 class ZhwaApp extends StatelessWidget {
   final AppRouter appRouter;
@@ -19,22 +20,22 @@ class ZhwaApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           textSelectionTheme: TextSelectionThemeData(
-            selectionColor: AppColors.primaryColor,
-            selectionHandleColor: AppColors.primaryColor,
+            selectionColor: AppColors.scaffoldBackground,
+            selectionHandleColor: AppColors.scaffoldBackground,
           ),
           fontFamily: 'IBMPlexSansArabic',
-          // scaffoldBackgroundColor: AppColors.primaryColor,
-          scaffoldBackgroundColor: Colors.white,
+          scaffoldBackgroundColor: AppColors.scaffoldBackground,
         ),
         onGenerateRoute: appRouter.generateRoute,
         initialRoute: Routes.onBoarding,
         locale: const Locale('ar'),
         localizationsDelegates: const [
+          AppLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-        supportedLocales: const [Locale('ar')],
+        supportedLocales: const [Locale('ar'), Locale('en')],
       ),
     );
   }
