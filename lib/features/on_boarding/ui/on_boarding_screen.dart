@@ -47,7 +47,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           return Column(
             children: [
               OnBoardingOptions(),
-              SizedBox(height: 20.h),
               Expanded(
                 child: PageView(
                   controller: _pageController,

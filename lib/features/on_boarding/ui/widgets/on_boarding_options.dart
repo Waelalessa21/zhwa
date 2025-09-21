@@ -12,36 +12,49 @@ class OnBoardingOptions extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<LanguageCubit, LanguageState>(
       builder: (context, languageState) {
-        return GestureDetector(
-          onTap: () {
-            final newLocale = languageState.locale.languageCode == 'ar'
-                ? const Locale('en')
-                : const Locale('ar');
-            context.read<LanguageCubit>().changeLanguage(newLocale);
-          },
-          child: Align(
-            alignment: languageState.isRTL
-                ? Alignment.centerRight
-                : Alignment.centerLeft,
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
-              decoration: BoxDecoration(
-                color: AppColors.scaffoldBackground.withOpacity(0.5),
-                borderRadius: BorderRadius.circular(20.r),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Iconsax.global, color: Colors.black),
-                  SizedBox(width: 10.w),
-                  Text(
-                    languageState.languageName,
-                    style: TextStyle(color: Colors.black, fontSize: 14.sp),
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            GestureDetector(
+              onTap: () {
+                final newLocale = languageState.locale.languageCode == 'ar'
+                    ? const Locale('en')
+                    : const Locale('ar');
+                context.read<LanguageCubit>().changeLanguage(newLocale);
+              },
+              child: Align(
+                alignment: languageState.isRTL
+                    ? Alignment.centerRight
+                    : Alignment.centerLeft,
+                child: Container(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 10.w,
+                    vertical: 5.h,
                   ),
-                ],
+                  decoration: BoxDecoration(
+                    color: AppColors.scaffoldBackground.withOpacity(0.5),
+                    borderRadius: BorderRadius.circular(20.r),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Iconsax.global, color: Colors.black),
+                      SizedBox(width: 10.w),
+                      Text(
+                        languageState.languageName,
+                        style: TextStyle(color: Colors.black, fontSize: 14.sp),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
-          ),
+            Image.asset(
+              "assets/images/flower.png",
+              width: 100.w,
+              height: 100.h,
+            ),
+          ],
         );
       },
     );
