@@ -32,7 +32,7 @@ class UserLocation extends StatelessWidget {
             children: [
               SizedBox(width: 8.w),
               Text(
-                'الاحساء. حي الجامعة',
+                'أبها , حي المنسك',
                 style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w500),
               ),
             ],

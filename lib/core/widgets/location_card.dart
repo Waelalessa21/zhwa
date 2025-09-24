@@ -62,7 +62,7 @@ class LocationCard extends StatelessWidget {
                 ),
                 SizedBox(height: 2.h),
                 Text(
-                  'الاحساء حي الجامعة',
+                  'أبها , حي المنسك',
                   style: TextStyle(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w500,

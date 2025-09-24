@@ -1,11 +1,12 @@
 class ListOfStores {
   static List getStores() {
     return [
-      StoreData(imageUrl: 'assets/icons/Hydrangea.png', storeName: 'ورد'),
-      StoreData(imageUrl: 'assets/icons/foood.png', storeName: 'ضيافة'),
-      StoreData(imageUrl: 'assets/icons/staff.png', storeName: 'زينة'),
-      StoreData(imageUrl: 'assets/icons/wedding.png', storeName: 'تنسيق'),
-      StoreData(imageUrl: 'assets/icons/clothes.png', storeName: 'أزياء'),
+      StoreData(imageUrl: 'assets/icons/makeup.png', storeName: 'ميكب ارتست'),
+      StoreData(imageUrl: 'assets/icons/hair.png', storeName: ' هير ستايل'),
+      StoreData(imageUrl: 'assets/icons/camera.png', storeName: 'موثقين اللحظات '),
+      StoreData(imageUrl: 'assets/icons/ffa.png', storeName: 'ضيافة'),
+      StoreData(imageUrl: 'assets/icons/coor.png', storeName: 'تنسيقات'),
+      StoreData(imageUrl: 'assets/icons/dresses.png', storeName: 'فساتين'),
     ];
   }
 }
@@ -31,11 +32,7 @@ class OfferData {
 class ListOfOffers {
   static List<OfferData> getOffers() {
     return [
-      OfferData(
-        imageUrl: 'assets/icons/Hydrangea.png',
-        storeName: 'متجر x للورود',
-        offerDetails: 'عرض للورد بسعر 100 ريال',
-      ),
+      
     ];
   }
 }
