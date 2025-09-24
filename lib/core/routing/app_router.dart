@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zhwa/core/routing/routes.dart';
-import 'package:zhwa/features/home/ui/home_screen.dart';
+import 'package:zhwa/core/widgets/nav_bar.dart';
 import 'package:zhwa/features/login/ui/login_screen.dart';
 import 'package:zhwa/features/on_boarding/ui/on_boarding_screen.dart';
 import 'package:zhwa/core/localization/language_bloc_listener.dart';
@@ -18,12 +18,13 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const LoginScreen());
 
       case Routes.otp:
+        final phoneNumber = settings.arguments as String? ?? "";
         return MaterialPageRoute(
-          builder: (_) => const OtpScreen(phoneNumber: "0542772934"),
+          builder: (_) => OtpScreen(phoneNumber: phoneNumber),
         );
 
       case Routes.home:
-        return MaterialPageRoute(builder: (_) => const HomeScreen());
+        return MaterialPageRoute(builder: (_) => const NavBar());
 
       default:
         return null;

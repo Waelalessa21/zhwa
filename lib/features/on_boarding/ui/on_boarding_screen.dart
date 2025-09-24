@@ -47,6 +47,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           return Column(
             children: [
               OnBoardingOptions(),
+              SizedBox(height: 30.h),
               Expanded(
                 child: PageView(
                   controller: _pageController,
@@ -59,7 +60,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 16.h),
+                padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 40.h),
                 child: OnBoardingProgressIndicator(
                   currentStep: _currentStep,
                   onNext: _nextStep,

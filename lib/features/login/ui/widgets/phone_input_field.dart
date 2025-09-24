@@ -45,7 +45,8 @@ class _PhoneInputFieldState extends State<PhoneInputField> {
               _isLoading = false;
             });
             final formattedPhone = PhoneValidator.formatSaudiPhone(cleanValue);
-            widget.onValidPhone?.call(formattedPhone);
+            final localNumber = formattedPhone.replaceFirst('+966', '0');
+            widget.onValidPhone?.call(localNumber);
           }
         });
       } else {
