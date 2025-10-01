@@ -23,7 +23,7 @@ class OfferContainer extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 280,
+        height: 230.h,
         decoration: BoxDecoration(
           color: AppColors.primary50,
           borderRadius: BorderRadius.circular(16.r),
@@ -42,6 +42,7 @@ class OfferContainer extends StatelessWidget {
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
+                  color: AppColors.primary50,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(16.r),
                     topRight: Radius.circular(16.r),

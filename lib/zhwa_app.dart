@@ -27,7 +27,7 @@ class ZhwaApp extends StatelessWidget {
           scaffoldBackgroundColor: AppColors.scaffoldBackground,
         ),
         onGenerateRoute: appRouter.generateRoute,
-        initialRoute: Routes.home,
+        initialRoute: Routes.onBoarding,
         locale: const Locale('ar'),
         localizationsDelegates: const [
           AppLocalizations.delegate,

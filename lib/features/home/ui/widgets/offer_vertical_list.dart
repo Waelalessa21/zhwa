@@ -21,9 +21,7 @@ class OfferVerticalList extends StatelessWidget {
               offerType: "عرض خاص",
               offerProvider: offer.storeName,
               offerDetails: offer.offerDetails,
-              onTap: () {
-                // Handle offer tap
-              },
+              onTap: () {},
             ),
             if (index < offers.length - 1) SizedBox(height: 16.h),
           ],

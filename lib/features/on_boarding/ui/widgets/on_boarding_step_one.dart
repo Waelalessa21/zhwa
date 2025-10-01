@@ -97,7 +97,7 @@ class _OnBoardingStepOneState extends State<OnBoardingStepOne>
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -151,7 +151,7 @@ class _OnBoardingStepOneState extends State<OnBoardingStepOne>
                   child: FadeTransition(
                     opacity: _imageFadeAnimation,
                     child: Image.asset(
-                      'assets/images/onBoardingOneMock.png',
+                      'assets/images/app_mock.png',
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height * 0.7,
                       fit: BoxFit.contain,

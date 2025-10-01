@@ -18,21 +18,18 @@ class HomeScreen extends StatelessWidget {
       appBar: HomeAppBar(),
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 16.0.h),
-        child: Align(
-          alignment: Alignment.centerRight,
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                HomeWelcome(),
-                SizedBox(height: 24.h),
-                StoresHorizontalList(),
-                SectionHeading(title: 'العروض', icon: Iconsax.discover),
-                SizedBox(height: 24.h),
-                OfferVerticalList(offers: ListOfOffers.getOffers()),
-                SizedBox(height: 10.h),
-              ],
-            ),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              HomeWelcome(),
+              SizedBox(height: 24.h),
+              StoresHorizontalList(),
+              SectionHeading(title: 'العروض', icon: Iconsax.discover),
+              SizedBox(height: 24.h),
+              OfferVerticalList(offers: ListOfOffers.getOffers()),
+              SizedBox(height: 10.h),
+            ],
           ),
         ),
       ),
