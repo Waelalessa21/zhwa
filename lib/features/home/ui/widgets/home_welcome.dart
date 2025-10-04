@@ -30,7 +30,7 @@ class HomeWelcome extends StatelessWidget {
           ),
         ),
         SizedBox(height: 24.h),
-        SectionHeading(title: 'متاجرنا', icon: Iconsax.shop),
+        SectionHeading(title: 'متاجرنا', icon: Iconsax.shop, showAll: false),
       ],
     );
   }

@@ -103,7 +103,6 @@ class OfferContainer extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Offer provider
                     Text(
                       offerProvider,
                       style: const TextStyle(

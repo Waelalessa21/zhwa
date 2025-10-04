@@ -36,7 +36,12 @@ class ListOfOffers {
   static List<OfferData> getOffers() {
     return [
       OfferData(
-        imageUrl: "assets/images/offer.png",
+        imageUrl: "assets/images/offeer.png",
+        storeName: "ورود",
+        offerDetails: "عرض على نوعين مختلفة للورد",
+      ),
+      OfferData(
+        imageUrl: "assets/images/offeer.png",
         storeName: "ورود",
         offerDetails: "عرض على نوعين مختلفة للورد",
       ),

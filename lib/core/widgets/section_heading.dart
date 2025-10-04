@@ -4,8 +4,14 @@ import 'package:zhwa/core/theming/app_colors.dart';
 
 class SectionHeading extends StatelessWidget {
   final String title;
+  final bool showAll;
   final IconData icon;
-  const SectionHeading({super.key, required this.title, required this.icon});
+  const SectionHeading({
+    super.key,
+    required this.title,
+    required this.icon,
+    this.showAll = true,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +34,7 @@ class SectionHeading extends StatelessWidget {
           ],
         ),
         Text(
-          "الكل",
+          showAll ? "الكل" : "",
           style: TextStyle(
             fontSize: 14.sp,
             fontWeight: FontWeight.w500,

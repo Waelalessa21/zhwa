@@ -25,7 +25,11 @@ class HomeScreen extends StatelessWidget {
               HomeWelcome(),
               SizedBox(height: 24.h),
               StoresHorizontalList(),
-              SectionHeading(title: 'العروض', icon: Iconsax.discover),
+              SectionHeading(
+                title: 'العروض',
+                icon: Iconsax.discover,
+                showAll: true,
+              ),
               SizedBox(height: 24.h),
               OfferVerticalList(offers: ListOfOffers.getOffers()),
               SizedBox(height: 10.h),

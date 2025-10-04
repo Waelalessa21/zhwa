@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zhwa/core/theming/app_colors.dart';
+import 'package:zhwa/features/stores/ui/stores_screen.dart';
 
 class StoreContainer extends StatelessWidget {
   final String imageUrl;
@@ -14,30 +15,40 @@ class StoreContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.all(Radius.circular(12.r)),
-          child: Container(
-            height: 80.h,
-            width: 80.w,
-            decoration: BoxDecoration(color: AppColors.primary50),
-            child: Image.asset(imageUrl, fit: BoxFit.cover),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => StoresScreen(storeName: storeName),
           ),
-        ),
-        Container(
-          padding: EdgeInsets.symmetric(vertical: 8.h),
-          child: Text(
-            storeName,
-            style: TextStyle(
-              fontSize: 14.sp,
-              fontWeight: FontWeight.w500,
-              color: AppColors.appPurple,
+        );
+      },
+      child: Column(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(12.r)),
+            child: Container(
+              height: 80.h,
+              width: 80.w,
+              decoration: BoxDecoration(color: AppColors.primary50),
+              child: Image.asset(imageUrl, fit: BoxFit.cover),
             ),
-            textAlign: TextAlign.center,
           ),
-        ),
-      ],
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 8.h),
+            child: Text(
+              storeName,
+              style: TextStyle(
+                fontSize: 14.sp,
+                fontWeight: FontWeight.w500,
+                color: AppColors.appPurple,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
