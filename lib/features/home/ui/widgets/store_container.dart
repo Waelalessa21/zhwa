@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:zhwa/core/theming/app_colors.dart';
 import 'package:zhwa/features/stores/ui/stores_screen.dart';
 
@@ -32,7 +33,7 @@ class StoreContainer extends StatelessWidget {
               height: 80.h,
               width: 80.w,
               decoration: BoxDecoration(color: AppColors.primary50),
-              child: Image.asset(imageUrl, fit: BoxFit.cover),
+              child: _buildStoreImage(),
             ),
           ),
           Container(
@@ -48,6 +49,47 @@ class StoreContainer extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildStoreImage() {
+    if (imageUrl.startsWith('http')) {
+      return Image.network(
+        imageUrl,
+        fit: BoxFit.cover,
+        errorBuilder: (context, error, stackTrace) {
+          return _buildFallbackIcon();
+        },
+        loadingBuilder: (context, child, loadingProgress) {
+          if (loadingProgress == null) return child;
+          return Center(
+            child: CircularProgressIndicator(
+              color: AppColors.appGreen,
+              strokeWidth: 2,
+            ),
+          );
+        },
+      );
+    } else {
+      return Image.asset(
+        imageUrl,
+        fit: BoxFit.cover,
+        errorBuilder: (context, error, stackTrace) {
+          return _buildFallbackIcon();
+        },
+      );
+    }
+  }
+
+  Widget _buildFallbackIcon() {
+    return Container(
+      decoration: BoxDecoration(
+        color: AppColors.appGreen.withOpacity(0.1),
+        borderRadius: BorderRadius.all(Radius.circular(12.r)),
+      ),
+      child: Center(
+        child: Icon(Iconsax.shop, color: AppColors.appGreen, size: 32.sp),
       ),
     );
   }

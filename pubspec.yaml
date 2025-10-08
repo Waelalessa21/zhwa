@@ -28,6 +28,11 @@ dependencies:
   flutter_bloc: ^8.1.3
   #for lottie animations
   lottie: ^3.3.1
+  #for HTTP requests
+  http: ^1.1.0
+  dio: ^5.4.0
+  #for JSON serialization
+  json_annotation: ^4.8.1
   
 dev_dependencies:
   flutter_test:
@@ -35,6 +40,9 @@ dev_dependencies:
   flutter_lints: ^5.0.0
   #for app icons
   flutter_launcher_icons: ^0.14.4
+  #for JSON code generation
+  json_serializable: ^6.7.1
+  build_runner: ^2.4.7
 
 flutter:
   uses-material-design: true

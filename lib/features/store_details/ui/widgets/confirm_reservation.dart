@@ -38,15 +38,6 @@ class _ConfirmReservationState extends State<ConfirmReservation> {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'تأكيد الحجز',
-          style: TextStyle(
-            fontSize: 22.sp,
-            fontWeight: FontWeight.bold,
-            color: AppColors.appPurple,
-          ),
-        ),
-        SizedBox(height: 20.h),
         Container(
           padding: EdgeInsets.all(16.w),
           decoration: BoxDecoration(
@@ -56,33 +47,19 @@ class _ConfirmReservationState extends State<ConfirmReservation> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'الخدمة',
-                    style: TextStyle(
-                      fontSize: 12.sp,
-                      color: AppColors.appGreen.withOpacity(0.6),
-                    ),
-                  ),
-                  SizedBox(height: 4.h),
-                  Text(
-                    widget.serviceName,
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.appGreen,
-                    ),
-                  ),
-                ],
+              Text(
+                'الخدمة',
+                style: TextStyle(
+                  fontSize: 12.sp,
+                  color: AppColors.appGreen.withOpacity(0.6),
+                ),
               ),
               Text(
-                widget.servicePrice,
+                widget.serviceName,
                 style: TextStyle(
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.appPurple,
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.appGreen,
                 ),
               ),
             ],

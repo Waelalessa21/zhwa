@@ -1,5 +1,5 @@
 class ListOfStores {
-  static List getStores() {
+  static List<StoreData> getStores() {
     return [
       StoreData(imageUrl: 'assets/icons/makeup.png', storeName: 'ميكب ارتست'),
       StoreData(imageUrl: 'assets/icons/hair.png', storeName: ' هير ستايل'),

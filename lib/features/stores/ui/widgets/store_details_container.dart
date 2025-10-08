@@ -25,18 +25,13 @@ class StoreDetailsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap ??
+      onTap:
+          onTap ??
           () {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => StoreDetailsScreen(
-                  storeName: storeName,
-                  storeImage: imageUrl,
-                  rating: rating,
-                  location: location,
-                  description: storeDescription,
-                ),
+                builder: (context) => StoreDetailsScreen(storeId: 'temp-id'),
               ),
             );
           },
@@ -60,21 +55,18 @@ class StoreDetailsContainer extends StatelessWidget {
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: AppColors.primary50,
+                  color: AppColors.white,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(16.r),
                     topRight: Radius.circular(16.r),
                   ),
-                  image: DecorationImage(
-                    image: AssetImage(imageUrl),
-                    fit: BoxFit.cover,
-                  ),
                 ),
+                child: _buildStoreImage(context),
               ),
             ),
             // Store Details
             Expanded(
-              flex: 4,
+              flex: 5,
               child: Container(
                 width: double.infinity,
                 padding: EdgeInsets.all(12.w),
@@ -154,6 +146,67 @@ class StoreDetailsContainer extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildStoreImage(BuildContext context) {
+    if (imageUrl.startsWith('http')) {
+      return ClipRRect(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(16.r),
+          topRight: Radius.circular(16.r),
+        ),
+        child: Image.network(
+          imageUrl,
+          fit: BoxFit.cover,
+          width: double.infinity,
+          height: double.infinity,
+          errorBuilder: (context, error, stackTrace) {
+            return _buildFallbackIcon();
+          },
+          loadingBuilder: (context, child, loadingProgress) {
+            if (loadingProgress == null) return child;
+            return Center(
+              child: CircularProgressIndicator(
+                color: AppColors.appGreen,
+                strokeWidth: 2,
+              ),
+            );
+          },
+        ),
+      );
+    } else {
+      return ClipRRect(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(16.r),
+          topRight: Radius.circular(16.r),
+        ),
+        child: Image.asset(
+          imageUrl,
+          fit: BoxFit.contain,
+
+          width: double.infinity,
+          height: MediaQuery.of(context).size.height * 0.1,
+          errorBuilder: (context, error, stackTrace) {
+            return _buildFallbackIcon();
+          },
+        ),
+      );
+    }
+  }
+
+  Widget _buildFallbackIcon() {
+    return Container(
+      decoration: BoxDecoration(
+        color: AppColors.appGreen.withOpacity(0.1),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(16.r),
+          topRight: Radius.circular(16.r),
+        ),
+      ),
+      child: Center(
+        child: Icon(Iconsax.shop, color: AppColors.appGreen, size: 48.sp),
       ),
     );
   }

@@ -16,21 +16,20 @@ class StoreDetailsHeader extends StatelessWidget {
         Container(
           height: 280.h,
           width: double.infinity,
-          decoration: BoxDecoration(
-            color: AppColors.primary50,
-            image: DecorationImage(
-              image: AssetImage(imageUrl),
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Colors.black.withOpacity(0.3), Colors.transparent],
+          decoration: BoxDecoration(color: AppColors.primary50),
+          child: Stack(
+            children: [
+              _buildStoreImage(),
+              Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [Colors.black.withOpacity(0.3), Colors.transparent],
+                  ),
+                ),
               ),
-            ),
+            ],
           ),
         ),
         SafeArea(
@@ -73,6 +72,48 @@ class StoreDetailsHeader extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildStoreImage() {
+    if (imageUrl.startsWith('http')) {
+      return Image.network(
+        imageUrl,
+        fit: BoxFit.cover,
+        width: double.infinity,
+        height: double.infinity,
+        errorBuilder: (context, error, stackTrace) {
+          return _buildFallbackIcon();
+        },
+        loadingBuilder: (context, child, loadingProgress) {
+          if (loadingProgress == null) return child;
+          return Center(
+            child: CircularProgressIndicator(
+              color: AppColors.appGreen,
+              strokeWidth: 2,
+            ),
+          );
+        },
+      );
+    } else {
+      return Image.asset(
+        imageUrl,
+        fit: BoxFit.cover,
+        width: double.infinity,
+        height: double.infinity,
+        errorBuilder: (context, error, stackTrace) {
+          return _buildFallbackIcon();
+        },
+      );
+    }
+  }
+
+  Widget _buildFallbackIcon() {
+    return Image.asset(
+      "assets/images/logo.png",
+      fit: BoxFit.cover,
+      width: double.infinity,
+      height: double.infinity,
     );
   }
 }

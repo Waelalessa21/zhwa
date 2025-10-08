@@ -6,16 +6,60 @@ import 'package:zhwa/core/widgets/app_bottom_sheet.dart';
 import 'package:zhwa/features/store_details/ui/widgets/confirm_reservation.dart';
 
 class StoreDetailsServices extends StatelessWidget {
-  const StoreDetailsServices({super.key});
+  final List<String> products;
+
+  const StoreDetailsServices({super.key, required this.products});
 
   @override
   Widget build(BuildContext context) {
-    final services = [
-      {'name': 'مكياج عرائس', 'icon': Iconsax.brush_1, 'price': '500 ر.س'},
-      {'name': 'تسريحات شعر', 'icon': Iconsax.scissor, 'price': '300 ر.س'},
-      {'name': 'عناية بالبشرة', 'icon': Iconsax.health, 'price': '250 ر.س'},
-      {'name': 'مناكير وباديكير', 'icon': Iconsax.activity, 'price': '150 ر.س'},
-    ];
+    if (products.isEmpty) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Icon(
+                Iconsax.search_favorite,
+                color: AppColors.appGreen,
+                size: 18.sp,
+              ),
+              SizedBox(width: 8.w),
+              Text(
+                'وش يقدم المتجر؟',
+                style: TextStyle(
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w400,
+                  color: AppColors.appGreen,
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 12.h),
+          Container(
+            padding: EdgeInsets.all(16.w),
+            decoration: BoxDecoration(
+              color: AppColors.white,
+              borderRadius: BorderRadius.circular(12.r),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.05),
+                  blurRadius: 6,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+            ),
+            child: Text(
+              'لا توجد خدمات متاحة حالياً',
+              style: TextStyle(
+                fontSize: 14.sp,
+                color: AppColors.primary400,
+              ),
+            ),
+          ),
+        ],
+      );
+    }
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,7 +83,7 @@ class StoreDetailsServices extends StatelessWidget {
             ),
           ],
         ),
-        ...services.map((service) {
+        ...products.map((product) {
           return Container(
             margin: EdgeInsets.only(top: 12.h),
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
@@ -60,13 +104,13 @@ class StoreDetailsServices extends StatelessWidget {
                 Row(
                   children: [
                     Icon(
-                      service['icon'] as IconData,
+                      Iconsax.tag,
                       color: AppColors.appPurple,
                       size: 20.sp,
                     ),
                     SizedBox(width: 8.w),
                     Text(
-                      service['name'] as String,
+                      product,
                       style: TextStyle(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w500,
@@ -79,7 +123,7 @@ class StoreDetailsServices extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      service['price'] as String,
+                      'متاح',
                       style: TextStyle(
                         fontSize: 12.sp,
                         fontWeight: FontWeight.w500,
@@ -98,8 +142,8 @@ class StoreDetailsServices extends StatelessWidget {
                         AppBottomSheet.show(
                           context: context,
                           child: ConfirmReservation(
-                            serviceName: service['name'].toString(),
-                            servicePrice: service['price'].toString(),
+                            serviceName: product,
+                            servicePrice: 'اتصل للاستفسار',
                           ),
                         );
                       },
