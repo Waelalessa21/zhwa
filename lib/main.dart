@@ -11,7 +11,7 @@ void main() async {
   DependencyInjection.init();
 
   final isAuthenticated = await AuthService.isAuthenticated();
-  final initialRoute = isAuthenticated ? Routes.home : Routes.login;
+  final initialRoute = Routes.home;
 
   runApp(ZhwaApp(appRouter: AppRouter(), initialRoute: initialRoute));
 }
